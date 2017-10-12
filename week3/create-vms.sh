@@ -3,8 +3,8 @@
 if [ -z "$1" ] 
 then
     echo "usage: $0 num"
-    echo "   will create <num> instances"
+    echo "   will create <num> instances named jacek1 .. jacek<num>"
     exit -1
 fi
 
-gcloud compute instances create --instance-type f1.micro `seq -f 'jacek%g' 1 $1`
+gcloud compute instances create --machine-type f1-micro --zone europe-west1-d `seq -f 'jacek%g' 1 $1`
