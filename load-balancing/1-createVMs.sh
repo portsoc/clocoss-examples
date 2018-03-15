@@ -6,7 +6,7 @@ echo using prefix "\"$prefix\""
 
 gcloud compute instances create "$prefix"www-lb-1 "$prefix"www-lb-2 \
     --zone us-central1-b \
-    --tags http-lb-tag \
+    --tags "$prefix"http-lb-tag \
     --metadata startup-script="#! /bin/bash
       curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
       sudo apt-get install -y nodejs git
@@ -19,7 +19,7 @@ gcloud compute instances create "$prefix"www-lb-1 "$prefix"www-lb-2 \
 
 gcloud compute instances create "$prefix"www-lb-3 "$prefix"www-lb-4 \
     --zone europe-west1-b \
-    --tags http-lb-tag \
+    --tags "$prefix"http-lb-tag \
     --metadata startup-script="#! /bin/bash
       curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
       sudo apt-get install -y nodejs git
