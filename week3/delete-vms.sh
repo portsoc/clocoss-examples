@@ -7,4 +7,4 @@ then
     exit -1
 fi
 
-gcloud compute instances delete --zone europe-west1-d `seq -f 'jacek%g' 1 $1`
+gcloud compute instances delete --quiet --zone europe-west1-d `seq -f 'jacek%g' 1 $1`
