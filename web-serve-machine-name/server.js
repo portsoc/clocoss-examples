@@ -24,7 +24,8 @@ async function init() {
     return;
   }
 
-  const instZone = await response.text();
+  const instFullZone = await response.text();
+  const instZone = instFullZone.substring(instFullZone.lastIndexOf('/') + 1);
 
   const app = express();
   app.get('/', (req, res) => res.send(`hello from instance ${instName} in zone ${instZone}`));
